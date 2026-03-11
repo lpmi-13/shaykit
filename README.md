@@ -10,7 +10,7 @@ A React Native app for practicing English word stress patterns by physically sha
    - **○** (empty) = unstressed syllable — shake gently
 3. Start shaking your phone to begin. The app listens for each syllable in sequence:
    - For **stressed** syllables: shake forcefully (acceleration > 4.5g)
-   - For **unstressed** syllables: shake gently (acceleration between 1.8g and 4.0g)
+   - For **unstressed** syllables: shake gently (acceleration between 1.8g and 3.0g)
 4. **Green ✓** = you matched the pattern correctly (auto-advances after 2s)
 5. **Red ✗** = try again with the same word (resets after 2s)
 6. Use the **Skip →** button to move to the next word at any time

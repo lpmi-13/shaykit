@@ -13,7 +13,7 @@ import WORDS from './wordData';
 // Shake detection thresholds (acceleration magnitude in g-force)
 // Unstressed syllable: gentle shake between these bounds
 const UNSTRESSED_MIN = 1.8;
-const UNSTRESSED_MAX = 4.0;
+const UNSTRESSED_MAX = 3.0;
 // Stressed syllable: strong shake above this threshold
 const STRESSED_MIN = 4.5;
 
