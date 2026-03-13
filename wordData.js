@@ -2,7 +2,7 @@
 // stress: [first_syllable_stressed, second_syllable_stressed]
 // true = stressed (S), false = unstressed (U)
 
-const WORDS = [
+const SHAKE_WORDS = [
   {word: "abstract", stress: [false, true]},
   {word: "access", stress: [true, false]},
   {word: "achieve", stress: [false, true]},
@@ -263,4 +263,72 @@ const WORDS = [
   {word: "whereby", stress: [false, true]},
 ];
 
-export default WORDS;
+const QUIZ_ANNOTATED_VARIANTS = {
+  compound: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  conduct: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  conflict: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  construct: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  contrast: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  convert: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  project: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  research: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  transfer: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  transform: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+  transport: [
+    { annotation: 'noun', stress: [true, false] },
+    { annotation: 'verb', stress: [false, true] },
+  ],
+};
+
+const QUIZ_WORDS = SHAKE_WORDS.flatMap((entry) => {
+  const variants = QUIZ_ANNOTATED_VARIANTS[entry.word];
+
+  if (!variants) {
+    return [{
+      ...entry,
+      id: entry.word,
+      baseWord: entry.word,
+      annotation: null,
+    }];
+  }
+
+  return variants.map((variant) => ({
+    ...entry,
+    ...variant,
+    id: `${entry.word}-${variant.annotation}`,
+    baseWord: entry.word,
+  }));
+});
+
+export { QUIZ_WORDS };
+export default SHAKE_WORDS;
